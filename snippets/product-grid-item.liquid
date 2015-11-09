@@ -55,7 +55,7 @@
     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
   </a>
 
-  <p class="h6">
+  <p class="h6 product-title">
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
   </p>
   <p>
@@ -84,7 +84,7 @@
     {% endif %}
     {% if on_sale %}
       <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-      <br><s>{{ product.compare_at_price | money }}</s>
+      <s class="compare-price">{{ product.compare_at_price | money }}</s>
     {% endif %}
   </p>
 

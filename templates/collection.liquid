@@ -6,27 +6,16 @@
 
 {% endcomment %}
 
-{% paginate collection.products by 12 %}
-
-{% include 'breadcrumb' %}
-
-{% comment %}
-  Use .grid--rev so that the collection tags appear below the products on mobile
-{% endcomment %}
-<div class="grid--rev">
-  <div class="grid__item large--three-quarters">
-
-    {% comment %}
-      Different markup if a collection description exists
-    {% endcomment %}
+<div class="grid">
+  <div class="grid__item large--three-quarters push--large--one-quarter">
     {% if collection.description != blank %}
       <header class="section-header">
-        <h1 class="section-header__title">{{ collection.title }}</h1>
+        <h1 class="section-header__title">Shop</h1>
         <div class="rte rte--header">
           {{ collection.description }}
         </div>
       </header>
-      <hr>
+
       <div class="section-header">
         <div class="section-header__right">
           {% include 'collection-sorting' %}
@@ -34,12 +23,31 @@
       </div>
     {% else %}
       <header class="section-header">
-        <h1 class="section-header__title section-header__left">{{ collection.title }}</h1>
+        <h1 class="section-header__title section-header__left">Shop</h1>
         <div class="section-header__right">
           {% include 'collection-sorting' %}
         </div>
       </header>
     {% endif %}
+  </div>
+  
+</div>
+
+{% paginate collection.products by 12 %}
+
+{% comment %}
+  Use .grid--rev so that the collection tags appear below the products on mobile
+{% endcomment %}
+<div class="grid">
+  <div class="grid__item large--one-quarter">
+    {% include 'sidebar' %}
+  </div>
+  <div class="grid__item large--three-quarters">
+
+    {% comment %}
+      Different markup if a collection description exists
+    {% endcomment %}
+
 
     {% comment %}
       Use class grid-uniform to have evenly sized columns clear
@@ -92,9 +100,7 @@
 
   </div>
 
-  <div class="grid__item large--one-quarter">
-    {% include 'collection-sidebar' %}
-  </div>
+
 </div>
 
 {% endpaginate %}

@@ -805,7 +805,7 @@ select {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  display: block;
+
   font-family: $headerFontStack;
   font-weight: $headerFontWeight;
   margin: 0 0 0.5em;
@@ -2267,7 +2267,7 @@ label.error {
 ==============================================================================*/
 .grid__image {
   display: block;
-  margin: 0 auto ($gutter / 2);
+  margin: ($gutter) auto ($gutter * 2);
 
   img {
     display: block;
@@ -2667,4 +2667,44 @@ label.error {
 
 .hover {
   display: none;
+}
+
+.product-title {
+  font-size: 24px;
+  text-transform: uppercase;
+
+  a {
+    color: black;
+
+    &:hover {
+      color: #fd6eac;
+    }
+  }
+}
+
+.tags li a {
+  font-family: $headerFontStack;
+  text-transform: uppercase;
+
+  &:hover {
+    color: #fd6eac;
+  }
+}
+
+.tags {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Layer_37.png?11144987659733360576);
+}
+
+#ProductPrice {
+  font-family: $bodyFontStack;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+#ComparePrice, .compare-price {
+  text-decoration: line-through;
+  font-family: $headerFontStack;
+  font-size: 22px;
+  letter-spacing: 0.025em;
+  color: #e62a2b;
 }

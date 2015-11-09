@@ -1,0 +1,91 @@
+<div class="sidebar">
+  <div class="sidebar-item tags">
+
+    {% if collection.all_tags.size > 0 %}
+      <h3>{{ 'collections.sidebar.tags' | t }}</h3>
+
+      {% comment %}
+        To provide a 'catch-all' link at the top of the list,
+        check against the collection.handle, product type, and vendor.
+      {% endcomment %}
+      <ul class="no-bullets">
+        <li{% unless current_tags %} class="filter--active"{% endunless %}>
+
+          {% comment %}
+            Good for /collections/all collection and regular collections
+          {% endcomment %}
+          {% if collection.handle %}
+            <a href="/collections/{{ collection.handle }}">
+              {{ 'collections.general.all_of_collection' | t: collection: collection.title }}
+            </a>
+
+          {% comment %}
+            Good for automatic type collections
+          {% endcomment %}
+          {% elsif collection.current_type %}
+            <a href="{{ collection.current_type | url_for_type }}">
+              {{ 'collections.general.all_of_collection' | t: collection: collection.title }}
+            </a>
+
+          {% comment %}
+            Good for automatic vendor collections
+          {% endcomment %}
+          {% elsif collection.current_vendor %}
+            <a href="{{ collection.current_vendor | url_for_vendor }}">
+              {{ 'collections.general.all_of_collection' | t: collection: collection.title }}
+            </a>
+          {% endif %}
+        </li>
+
+        {% comment %}
+          And for the good stuff, loop through the tags themselves.
+        {% endcomment %}
+        {% for tag in collection.all_tags %}
+          {% if current_tags contains tag %}
+            <li class="filter--active">
+              {{ tag | link_to_remove_tag: tag }}
+            </li>
+          {% else %}
+            <li>
+              {% comment %}
+                Use link_to_add_tag if you want to allow filtering
+                by multiple tags
+              {% endcomment %}
+              {{ tag | link_to_tag: tag }}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+  <div class="sidebar-item friend">
+    <h3>Be my friend!</h3>
+    <div class="social-icon-list">
+      <div class="social-icon">
+        <a href="">
+          <img src="https://cdn.shopify.com/s/files/1/1042/8868/files/facebook.png?18208085476536943212" class="land" />
+          <img src="https://cdn.shopify.com/s/files/1/1042/8868/files/facebook_273839d5-fed8-4e2f-b959-3e2194db6bed.png?18041210120226551077" class="hover" />
+        </a>
+      </div>
+      <div class="social-icon">
+        <a href="">
+          <img src="https://cdn.shopify.com/s/files/1/1042/8868/files/twitter.png?18208085476536943212" class="land" />
+          <img src="https://cdn.shopify.com/s/files/1/1042/8868/files/twitter_5b7cd945-ae36-4047-92d1-82b80c524b53.png?18041210120226551077" class="hover" />
+        </a>
+      </div>
+      <div class="social-icon">
+        <a href="">
+          <img src="https://cdn.shopify.com/s/files/1/1042/8868/files/instagram.png?18208085476536943212" class="land" />
+          <img src="https://cdn.shopify.com/s/files/1/1042/8868/files/instagram_6983705c-d84f-4e19-8a22-d9a79cc1c717.png?18041210120226551077" class="hover" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-item club">
+    <a href=""><h3>Join Wanda Book Club</h3></a>
+  </div>
+  <div class="sidebar-item love">
+    <a href=""><h3>Want a love note?</h3></a>
+  </div>
+</div>
