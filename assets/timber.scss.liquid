@@ -809,7 +809,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $headerFontStack;
   font-weight: $headerFontWeight;
   margin: 0 0 0.5em;
-  line-height: 1.4;
+  line-height: 1.2;
 
   a {
     text-decoration: none;
@@ -835,6 +835,7 @@ h3 {
   font-size: em(30px);
   letter-spacing: 0.025em;
   text-transform: uppercase;
+  font-weight: 400;
 
   .callout {
     color: $light-pink;
@@ -1892,6 +1893,36 @@ label.error {
   }
 }
 
+.site-footer .site-nav {
+  font-size: em(16px);
+  cursor: default;
+  margin: 0 0 0 (-$gutter / 2);
+
+  li {
+    margin: 0;
+    display: block;
+  }
+
+  > li {
+    position: relative;
+    display: inline-block;
+
+    font-family: $grace;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 0.05em;
+
+    a {
+      font-family: $grace;
+      text-transform: uppercase;
+      font-size: 18px;
+      padding: 5px;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
 /*================ Home to hamburger and cart that toggle drawers ================*/
 .site-nav--mobile {
   @extend .site-nav;
@@ -2582,3 +2613,58 @@ label.error {
 }
 
 {% endif %} // settings.ajax_cart_enable
+
+.sidebar {
+
+}
+
+.sidebar-item {
+  padding: 0 30px 30px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  text-align: center;
+
+  a {
+    color: black;
+  }
+}
+
+.social-icon-list {
+  display: block;
+}
+
+.social-icon {
+  display: inline;
+  margin-right: 10px;
+}
+
+
+.friend {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Layer_50.png?17518082804907604915);
+}
+
+.club {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Layer_53.png?17518082804907604915);
+  padding-top: 10px;
+
+  a {
+    &:hover {
+      color: $hot-pink;
+    }
+  }
+}
+
+.love {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/outline_heart.png?17518082804907604915);
+  padding-top: 10px;
+
+  a {
+    &:hover {
+      color: $hot-pink;
+    }
+  }
+}
+
+.hover {
+  display: none;
+}

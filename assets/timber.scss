@@ -77,6 +77,13 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
   #General Variables
 ==============================================================================*/
 
+$hot-pink : #fd6eac;
+$light-pink : #fdc4c8;
+$sky-blue : #c5ddf3;
+$purple : #97489c;
+$yellow : #fdb602;
+$mint : #6dc7b6;
+
 // Timber Colors
 $colorPrimary: #747474;
 $colorSecondary: #bbb;
@@ -93,11 +100,11 @@ $colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
 $colorBtnSecondaryText: #fff;
 
 // Text link colors
-$colorLink: $colorPrimary;
-$colorLinkHover: lighten($colorPrimary, 15%);
+$colorLink: $purple;
+$colorLinkHover: $hot-pink;
 
 // Text colors
-$colorTextBody: #333333;
+$colorTextBody: #000000;
 
 // Backgrounds
 $colorBody: #fff;
@@ -106,12 +113,12 @@ $colorBody: #fff;
 $colorBorder: #e5e5e5;
 
 // Nav and dropdown link background
-$colorNav: #f2f2f2;
-$colorNavText: #333;
+$colorNav: white;
+$colorNavText: black;
 
 // Site Footer
-$colorFooterBg: #f2f2f2;
-$colorFooterText: #636363;
+$colorFooterBg: #ffffff;
+$colorFooterText: #000000;
 
 // Logo max width
 $logoMaxWidth: 450px;
@@ -144,19 +151,22 @@ $zindexDrawer: 10;
 
 /*================ Typography ================*/
 
-$headerFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$grace : 'Covered By Your Grace';
+$din : 'DIN Next W01 Regular';
+
+$headerFontStack: $grace, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $headerFontWeight: 700;
 
-$bodyFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$baseFontSize: 14px; // Henseforth known as 1em
+$bodyFontStack: $din, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$baseFontSize: 18px; // Henseforth known as 1em
 
 @font-face {
   font-family: 'icons';
-  src: url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.eot?12205636605278683182');
-  src: url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.eot?12205636605278683182#iefix') format("embedded-opentype"),
-       url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.woff?12205636605278683182') format("woff"),
-       url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.ttf?12205636605278683182') format("truetype"),
-       url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.svg?12205636605278683182#timber-icons') format("svg");
+  src: url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.eot?13383421617657153161');
+  src: url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.eot?13383421617657153161#iefix') format("embedded-opentype"),
+       url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.woff?13383421617657153161') format("woff"),
+       url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.ttf?13383421617657153161') format("truetype"),
+       url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/icons.svg?13383421617657153161#timber-icons') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -785,6 +795,7 @@ textarea,
 button,
 select {
   font-size: $baseFontSize;
+  letter-spacing: 0.05em;
   line-height: 1.6;
   font-family: $bodyFontStack;
   color: $colorTextBody;
@@ -798,7 +809,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $headerFontStack;
   font-weight: $headerFontWeight;
   margin: 0 0 0.5em;
-  line-height: 1.4;
+  line-height: 1.2;
 
   a {
     text-decoration: none;
@@ -808,19 +819,33 @@ h1, h2, h3, h4, h5, h6 {
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
-  font-size: em(36px);
+  font-size: em(72px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 h2 {
-  font-size: em(28px);
+  font-size: em(40px);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 h3 {
-  font-size: em(22px);
+  font-size: em(30px);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  font-weight: 400;
+
+  .callout {
+    color: $light-pink;
+  }
 }
 
 h4 {
-  font-size: em(20px);
+  font-size: em(40px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 h5 {
@@ -1481,7 +1506,7 @@ select {
           appearance: none;
   background-position: right center;
   background: {
-    image: url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/ico-select.svg?12205636605278683182');
+    image: url('//cdn.shopify.com/s/files/1/1042/8868/t/2/assets/ico-select.svg?13383421617657153161');
     repeat: no-repeat;
     position: right 10px center;
     color: transparent;
@@ -1811,6 +1836,18 @@ label.error {
   display: inline-block;
 }
 
+.header-cart, .header-login, .header-cart a, .header-login a {
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: $light-pink;
+  font-weight: 700;
+
+  &:hover {
+    color: $hot-pink;
+  }
+}
+
 .site-header__search {
   display: inline-block;
   max-width: 400px;
@@ -1847,6 +1884,42 @@ label.error {
   > li {
     position: relative;
     display: inline-block;
+
+    a {
+      font-family: $grace;
+      text-transform: uppercase;
+      font-size: 40px;
+    }
+  }
+}
+
+.site-footer .site-nav {
+  font-size: em(16px);
+  cursor: default;
+  margin: 0 0 0 (-$gutter / 2);
+
+  li {
+    margin: 0;
+    display: block;
+  }
+
+  > li {
+    position: relative;
+    display: inline-block;
+
+    font-family: $grace;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 0.05em;
+
+    a {
+      font-family: $grace;
+      text-transform: uppercase;
+      font-size: 18px;
+      padding: 5px;
+      letter-spacing: 0.05em;
+    }
   }
 }
 
@@ -1869,7 +1942,7 @@ label.error {
   &:hover,
   &:active,
   &:focus {
-    color: darken($colorNavText, 15%);
+    color: $hot-pink;
   }
 
   .icon-arrow-down {
@@ -1880,7 +1953,7 @@ label.error {
   }
 
   .site-nav--active > & {
-    font-weight: bold;
+    color: $mint;
   }
 
   .site-nav--mobile & {
@@ -2540,3 +2613,58 @@ label.error {
 }
 
  // settings.ajax_cart_enable
+
+.sidebar {
+
+}
+
+.sidebar-item {
+  padding: 0 30px 30px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  text-align: center;
+
+  a {
+    color: black;
+  }
+}
+
+.social-icon-list {
+  display: block;
+}
+
+.social-icon {
+  display: inline;
+  margin-right: 10px;
+}
+
+
+.friend {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Layer_50.png?17518082804907604915);
+}
+
+.club {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Layer_53.png?17518082804907604915);
+  padding-top: 10px;
+
+  a {
+    &:hover {
+      color: $hot-pink;
+    }
+  }
+}
+
+.love {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/outline_heart.png?17518082804907604915);
+  padding-top: 10px;
+
+  a {
+    &:hover {
+      color: $hot-pink;
+    }
+  }
+}
+
+.hover {
+  display: none;
+}

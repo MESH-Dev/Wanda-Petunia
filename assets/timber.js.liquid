@@ -485,3 +485,8 @@ timber.Drawers = (function () {
 
 // Initialize Timber's JS on docready
 $(timber.init);
+
+$('.social-icon').hover(function() {
+  $(this).find('.land').toggle();
+  $(this).find('.hover').toggle();
+});
