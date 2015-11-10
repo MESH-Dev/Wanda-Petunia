@@ -57,6 +57,7 @@ $viewportIncrement: 1px;
 $small: 480px;
 $medium: 768px;
 $large: 769px;
+$desktop: 900px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
@@ -1879,7 +1880,7 @@ label.error {
 .site-nav {
   font-size: em(16px);
   cursor: default;
-  margin: 0 0 0 (-$gutter / 2);
+  margin: $gutter 0 0 (-$gutter / 2);
   text-align: right;
 
   li {
@@ -1926,6 +1927,7 @@ label.error {
       font-size: 18px;
       padding: 5px;
       letter-spacing: 0.05em;
+      cursor: pointer;
     }
   }
 }
@@ -1946,7 +1948,6 @@ label.error {
   padding: ($gutter / 2) $gutter;
   white-space: nowrap;
   color: $colorNavText;
-  cursor: pointer;
 
   &:hover,
   &:active,
@@ -2770,6 +2771,14 @@ label.error {
   left: 312px;
   background-repeat: repeat-y;
   z-index: -10;
+
+  @include at-query ($max, $desktop) {
+    left: 236px;
+  }
+
+  @include at-query ($max, $large) {
+    display: none;
+  }
 }
 
 .blue-line {
