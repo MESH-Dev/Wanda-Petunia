@@ -1946,6 +1946,7 @@ label.error {
   padding: ($gutter / 2) $gutter;
   white-space: nowrap;
   color: $colorNavText;
+  cursor: pointer;
 
   &:hover,
   &:active,
@@ -2295,6 +2296,7 @@ label.error {
 ==============================================================================*/
 .breadcrumb {
   margin-bottom: $gutter;
+  margin-left: $gutter * 3;
 
   a,
   span {
@@ -2321,7 +2323,10 @@ label.error {
 }
 
 .product-single__photos {
-  margin-bottom: $gutter;
+  margin: $gutter * 3;
+  padding: ($gutter * 2) 0;
+  border: 2px solid black;
+  position: relative;
 }
 
 .product-single__photos,
@@ -2774,4 +2779,18 @@ label.error {
   top: 0px;
   margin-bottom: 40px;
   height: 30px
+}
+
+.tape {
+  position: absolute;
+  top: -33px;
+  left: 77px;
+}
+
+.top-pink {
+  position: relative;
+  top: 0;
+  width: 100%;
+  background: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Rectangle_2.png?14854794305384837986);
+  height: 25px;
 }
