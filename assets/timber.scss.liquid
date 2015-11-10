@@ -143,7 +143,7 @@ $drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
 $siteWidth: 1180px;
 $gutter: 30px;
 $gridGutter: 30px; // can be a %, but nested grids will have smaller margins because of it
-$radius: 3px;
+$radius: 0px;
 
 // Z-index
 $zindexNavDropdowns: 5;
@@ -728,6 +728,7 @@ body {
 }
 
 .wrapper {
+  position: relative;
   @include clearfix();
   max-width: $siteWidth;
   margin: 0 auto;
@@ -741,7 +742,7 @@ body {
 .main-content {
   display: block;
   margin-top: $gutter;
-  padding-bottom: $gutter * 2;
+  padding: 20px ($gutter * 2) 150px ($gutter * 2);
 }
 
 /*============================================================================
@@ -1107,11 +1108,11 @@ html input[disabled] {
 .btn,
 .rte .btn {
   display: inline-block;
-  padding: 8px 10px;
+  padding: 8px 30px;
   width: auto;
   margin: 0;
   line-height: 1.42;
-  font-weight: bold;
+  font-weight: 400;
   text-decoration: none;
   text-align: center;
   vertical-align: middle;
@@ -1125,11 +1126,12 @@ html input[disabled] {
 
   /*================ Set primary button colors - can override later ================*/
   background-color: $colorBtnPrimary;
-  color: $colorBtnPrimaryText;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 18px;
 
   &:hover {
-    background-color: $colorBtnPrimaryHover;
-    color: $colorBtnPrimaryText;
+    background-color: $hot-pink;
   }
 
   &:active,
@@ -1515,6 +1517,7 @@ select {
   text-indent: 0.01px;
   text-overflow: '';
   cursor: pointer;
+  border-radius: 0px;
 
   /*================ Hide the svg arrow in IE9 and below ================*/
   .ie9 &,
@@ -1561,6 +1564,8 @@ select::-ms-expand {
 
 label[for] {
   cursor: pointer;
+  font-family: $headerFontStack;
+  text-transform: uppercase;
 }
 
 /*================ Horizontal Form ================*/
@@ -1875,6 +1880,7 @@ label.error {
   font-size: em(16px);
   cursor: default;
   margin: 0 0 0 (-$gutter / 2);
+  text-align: right;
 
   li {
     margin: 0;
@@ -1897,6 +1903,7 @@ label.error {
   font-size: em(16px);
   cursor: default;
   margin: 0 0 0 (-$gutter / 2);
+  text-align: center;
 
   li {
     margin: 0;
@@ -1926,6 +1933,7 @@ label.error {
 /*================ Home to hamburger and cart that toggle drawers ================*/
 .site-nav--mobile {
   @extend .site-nav;
+  text-align: inherit;
 
   .text-right & {
     margin: 0 (-$gutter / 2) 0 0;
@@ -1935,7 +1943,7 @@ label.error {
 .site-nav__link {
   display: block;
   text-decoration: none;
-  padding: $gutter / 2;
+  padding: ($gutter / 2) $gutter;
   white-space: nowrap;
   color: $colorNavText;
 
@@ -2537,10 +2545,11 @@ label.error {
 /*================ Quantity Selectors ================*/
 .js-qty {
   position: relative;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   max-width: 100px;
   min-width: 75px;
   overflow: visible;
+  margin-top: 10px;
 
   input {
     display: block;
@@ -2573,12 +2582,12 @@ label.error {
 
 .js-qty__adjust--plus {
   right: 0;
-  border-left: 1px solid $colorBorder;
+
 }
 
 .js-qty__adjust--minus {
   left: 0;
-  border-right: 1px solid $colorBorder;
+
 }
 
 /*================ Quantity Selectors in Ajax Cart ================*/
@@ -2619,7 +2628,7 @@ label.error {
 }
 
 .sidebar-item {
-  padding: 0 30px 30px;
+  padding: 0 25px 30px;
   background-repeat: no-repeat;
   background-position-x: center;
   text-align: center;
@@ -2702,9 +2711,67 @@ label.error {
 }
 
 #ComparePrice, .compare-price {
-  text-decoration: line-through;
   font-family: $headerFontStack;
   font-size: 22px;
   letter-spacing: 0.025em;
   color: #e62a2b;
+  margin-left: 15px;
+}
+
+.product-price {
+  text-decoration: line-through;
+}
+
+.sort-by {
+  font-family: $bodyFontStack !important;
+  text-transform: none !important;
+}
+
+.notebook-top {
+  width: 100%;
+}
+
+.notebook-left {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Notebook_LeftHoles.png?13864388064632225374);
+  position: absolute;
+  width: 70px;
+  height: 101%;
+  top: -56px;
+  left: 24px;
+  background-repeat: repeat-y;
+}
+
+.notebook-right {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Notebook_RightLine.png?227925679023848984);
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  top: -48px;
+  right: 30px;
+  background-repeat: repeat-y;
+}
+
+.notebook-bottom {
+  position: relative;
+  top: -70px;
+}
+
+.red-line {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Notebook_RedLine.png?16476600913161598611);
+  position: absolute;
+  width: 70px;
+  height: 101%;
+  top: -56px;
+  left: 312px;
+  background-repeat: repeat-y;
+  z-index: -10;
+}
+
+.blue-line {
+  background-image: url(https://cdn.shopify.com/s/files/1/1042/8868/files/Notebook_BlueLine.png?6855653859889869865);
+  position: relative;
+  width: 105%;
+  top: 0px;
+  margin-bottom: 40px;
+  height: 30px
 }

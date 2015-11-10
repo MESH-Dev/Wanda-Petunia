@@ -63,13 +63,17 @@
       You can show a leading 'from' or 'up to' by checking 'product.price_varies'
       if your variants have different prices.
     {% endcomment %}
+
+    {% if on_sale %}
+      <s class="product-price">{{ product.compare_at_price | money }}</s>
+    {% endif %}
+
     {% if on_sale %}
       {% if product.price_varies %}
         {% assign sale_price = product.price | money %}
-        {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+        <span class="compare-price">{{ 'products.product.on_sale_from_html' | t: price: sale_price }}</span>
       {% else %}
-        <strong>{{ 'products.product.on_sale' | t }}</strong>
-        {{ product.price | money }}
+        <span class="compare-price">{{ product.price | money }}</span>
       {% endif %}
     {% else %}
       {% if product.price_varies %}
@@ -80,12 +84,9 @@
       {% endif %}
     {% endif %}
     {% if sold_out %}
-      <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+      <br>
     {% endif %}
-    {% if on_sale %}
-      <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-      <s class="compare-price">{{ product.compare_at_price | money }}</s>
-    {% endif %}
+
   </p>
 
 </div>

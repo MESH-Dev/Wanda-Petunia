@@ -90,17 +90,30 @@
 
           <p>
 
-            <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-            <span id="ProductPrice" class="h2" itemprop="price">
-              {{ current_variant.price | money }}
-            </span>
+
 
             {% if product.compare_at_price_max > product.price %}
               <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-              <span id="ComparePrice">
+
+              <span class="product-price" class="h2" itemprop="price">
                 {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
               </span>
+
+              <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+              <span class="compare-price">
+                {{ current_variant.price | money }}
+              </span>
+
+            {% else %}
+
+            <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+
+              {{ current_variant.price | money }}
+            
+
             {% endif %}
+
+
 
           </p>
 
