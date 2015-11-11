@@ -744,6 +744,23 @@ body {
   display: block;
   margin-top: $gutter;
   padding: 20px ($gutter * 2) 150px ($gutter * 2);
+
+  @include at-query ($max, $large) {
+    padding: 0 0 50px 0;
+  }
+
+}
+
+.main-section {
+  @include at-query ($max, $large) {
+    padding-bottom: 50px;
+  }
+}
+
+.template-collection .main-section, .template-collection .section-header {
+  @include at-query ($max, $large) {
+    text-align: center;
+  }
 }
 
 /*============================================================================
@@ -1938,7 +1955,7 @@ label.error {
   text-align: inherit;
 
   .text-right & {
-    margin: 0 (-$gutter / 2) 0 0;
+
   }
 }
 
@@ -2296,8 +2313,12 @@ label.error {
   #Breadcrumbs
 ==============================================================================*/
 .breadcrumb {
-  margin-bottom: $gutter;
+  margin-bottom: $gutter * 2;
   margin-left: $gutter * 3;
+
+  @include at-query ($max, $large) {
+    margin-left: 5px;
+  }
 
   a,
   span {
@@ -2328,6 +2349,10 @@ label.error {
   padding: ($gutter * 2) 0;
   border: 2px solid black;
   position: relative;
+
+  @include at-query ($max, $large) {
+    margin: 5px 5px 30px 5px;
+  }
 }
 
 .product-single__photos,
@@ -2341,6 +2366,7 @@ label.error {
     margin-bottom: $gutter;
   }
 }
+
 
 
 /*============================================================================
@@ -2639,6 +2665,11 @@ label.error {
   background-position-x: center;
   text-align: center;
 
+  @include at-query ($max, $medium) {
+    width: 250px;
+    margin: auto;
+  }
+
   a {
     color: black;
   }
@@ -2735,6 +2766,10 @@ label.error {
 
 .notebook-top {
   width: 100%;
+
+  @include at-query ($max, $large) {
+    display: none;
+  }
 }
 
 .notebook-left {
@@ -2745,6 +2780,10 @@ label.error {
   top: -56px;
   left: 24px;
   background-repeat: repeat-y;
+
+  @include at-query ($max, $large) {
+    display: none;
+  }
 }
 
 .notebook-right {
@@ -2755,11 +2794,19 @@ label.error {
   top: -48px;
   right: 30px;
   background-repeat: repeat-y;
+
+  @include at-query ($max, $large) {
+    display: none;
+  }
 }
 
 .notebook-bottom {
   position: relative;
   top: -70px;
+
+  @include at-query ($max, $large) {
+    display: none;
+  }
 }
 
 .red-line {
@@ -2787,7 +2834,11 @@ label.error {
   width: 105%;
   top: 0px;
   margin-bottom: 40px;
-  height: 30px
+  height: 30px;
+
+  @include at-query ($max, $large) {
+    display: none;
+  }
 }
 
 .tape {
